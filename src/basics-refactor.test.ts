@@ -57,7 +57,12 @@ interface Param {
 // */
 
  describe("Problema de propietats opcionals", () => {
-   const getName = (params: { first: string; last?: string }) => {
+
+  interface Param {
+  first: string;
+  last?: string;
+  }
+   const getName = (params: Param) => {
      if (params.last !== undefined) {
        return `${params.first} ${params.last}`;
      }
