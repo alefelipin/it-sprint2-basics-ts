@@ -47,12 +47,8 @@ interface Param {
        })
      ).toEqual(30);
 
-
-     
+    expectTypeOf(addTwoNumbers).parameter(0).toEqualTypeOf<{ first: number; second: number }>();  
    });
-
-  expectTypeOf(addTwoNumbers).parameter(0).toEqualTypeOf<{ first: number; second: number }>();
-
  });
 
 // /*
