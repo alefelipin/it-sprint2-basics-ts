@@ -337,42 +337,33 @@ interface Param {
 // Pista: Consulta com representar objectes amb claus de tipus string i valors tipats.
 // */
 
-// describe("Problema de Record", () => {
-//   const createCache = () => {
-//     const cache = {};
-
-//     const add = (id: string, value: string) => {
-//       cache[id] = value;
-//     };
-
-//     const remove = (id: string) => {
-//       delete cache[id];
-//     };
-
-//     return {
-//       cache,
-//       add,
-//       remove,
-//     };
-//   };
-
-//   it("Ha d'afegir valors a la memòria cache", () => {
-//     const cache = createCache();
-
-//     cache.add("123", "Jen");
-
-//     expect(cache.cache["123"]).toEqual("Jen");
-//   });
-
-//   it("Ha d'eliminar valors de la memòria cache", () => {
-//     const cache = createCache();
-
-//     cache.add("123", "Jen");
-//     cache.remove("123");
-
-//     expect(cache.cache["123"]).toEqual(undefined);
-//   });
-// });
+ describe("Problema de Record", () => {
+   const createCache = () => {
+     const cache: Record<string, string> = {}
+     const add = (id: string, value: string) => {
+       cache[id] = value;
+     };
+     const remove = (id: string) => {
+       delete cache[id];
+     };
+     return {
+       cache,
+       add,
+       remove,
+     };
+   };
+   it("Ha d'afegir valors a la memòria cache", () => {
+     const cache = createCache()
+     cache.add("123", "Jen")
+     expect(cache.cache["123"]).toEqual("Jen");
+   })
+   it("Ha d'eliminar valors de la memòria cache", () => {
+     const cache = createCache()
+     cache.add("123", "Jen");
+     cache.remove("123")
+     expect(cache.cache["123"]).toEqual(undefined);
+   });
+ });
 
 // /*
 // Repte 12:
