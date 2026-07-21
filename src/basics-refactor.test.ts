@@ -437,30 +437,32 @@ interface Param {
 //  Pista: pots crear una interfície base i reutilitzar-la amb extends.
 // */
 
-// describe("Problema d'herència amb extends", () => {
-//   interface User {
-//     id: string;
-//     firstName: string;
-//     lastName: string;
-//   }
+ describe("Problema d'herència amb extends", () => {
 
-//   interface Post {
-//     id: string;
-//     title: string;
-//     body: string;
-//   }
+   interface IdNumber {
+     id: string;
+    }
 
-//   interface Comment {
-//     id: string;
-//     comment: string;
-//   }
+   interface User extends IdNumber{
+     firstName: string;
+     lastName: string;
+    }
+   
+   interface Post extends IdNumber {
+     title: string;
+     body: string;
+    } 
 
-//   type tests = [
-//     Expect<Equal<User, { id: string; firstName: string; lastName: string }>>,
-//     Expect<Equal<Post, { id: string; title: string; body: string }>>,
-//     Expect<Equal<Comment, { id: string; comment: string }>>
-//   ];
-// });
+   interface Comment extends IdNumber {
+     comment: string;
+    }
+   
+   type tests = [
+     Expect<Equal<User, { id: string; firstName: string; lastName: string }>>,
+     Expect<Equal<Post, { id: string; title: string; body: string }>>,
+     Expect<Equal<Comment, { id: string; comment: string }>>
+   ];
+ });
 
 // /*
 // Repte 15:
