@@ -258,11 +258,10 @@ interface Param {
      ],
    };
 ;
-   
 
    const makeUser = (): User => {
-     return defaultUser
-   };
+     return defaultUser;
+   }
 
    it("Ha de retornar un usuari vàlid", () => {
      const user = makeUser();
@@ -282,38 +281,36 @@ interface Param {
 // Has d'esbrinar com actualitzar l'anotació del tipus de retorn perquè TypeScript estigui satisfet.
 // */
 
-// describe("Problema de promeses", () => {
-//   interface LukeSkywalker {
-//     name: string;
-//     height: string;
-//     mass: string;
-//     hair_color: string;
-//     skin_color: string;
-//     eye_color: string;
-//     birth_year: string;
-//     gender: string;
-//   }
+ describe("Problema de promeses", () => {
+   interface LukeSkywalker {
+     name: string;
+     height: string;
+     mass: string;
+     hair_color: string;
+     skin_color: string;
+     eye_color: string;
+     birth_year: string;
+     gender: string;
+   }
 
-//   const fetchLukeSkywalker = async (): LukeSkywalker => {
-//     const data = await fetch("https://swapi.py4e.com/api/people/1").then(
-//       (res) => {
-//         return res.json();
-//       }
-//     );
+   const fetchLukeSkywalker = async (): Promise<LukeSkywalker> => {
+     const data = await fetch("https://swapi.py4e.com/api/people/1").then(
+       (res) => {
+         return res.json();
+       }
+     );
 
-//     return data;
-//   };
-//   it("ha de retornar una promesa", async () => {
-//    const result = fetchLukeSkywalker();
-
-//    expect(result).toBeInstanceOf(Promise);
-//   });
-// });
-
-// /*
-// Repte 10:
-// Actualitza guitarists perquè estigui tipat com un Set de strings.
-// */
+     return data;
+   };
+   it("ha de retornar una promesa", async () => {
+    const result = fetchLukeSkywalker()
+    expect(result).toBeInstanceOf(Promise);
+   });
+ })
+ /*
+ Repte 10:
+ Actualitza guitarists perquè estigui tipat com un Set de strings.
+ */
 
 // describe("Problema de Set", () => {
 //   const guitarists = new Set();
