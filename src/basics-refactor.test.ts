@@ -393,21 +393,39 @@ interface Param {
 // Pista: hi ha diverses maneres de resoldre aquest repte, prova diferents opcions!
 // */
 
-// describe("Problema de blocs catch", () => {
-//   const tryCatchDemo = (state: "fail" | "succeed") => {
-//     try {
-//       if (state === "fail") {
-//         throw new Error("Failure!");
-//       }
-//     } catch (e) {
-//       return e.message;
-//     }
-//   };
+ describe("Problema de blocs catch", () => {
+   const tryCatchDemo = (state: "fail" | "succeed") => {
+     try {
+       if (state === "fail") {
+         throw new Error("Failure!");
+       }
+     } catch (e) {
+      if (e instanceof Error) {
+        return e.message;
+      }
+       
+     }
+   }
+   it("Ha de retornar el missatge quan falla", () => {
+     expect(tryCatchDemo("fail")).toEqual("Failure!");
+   });
+ });
 
-//   it("Ha de retornar el missatge quan falla", () => {
-//     expect(tryCatchDemo("fail")).toEqual("Failure!");
-//   });
-// });
+ describe("Problema de blocs catch", () => {
+   const tryCatchDemo = (state: "fail" | "succeed") => {
+     try {
+       if (state === "fail") {
+         throw new Error("Failure!");
+       }
+     } catch (e) {
+       const error = e as Error;
+       return error.message;
+     }
+   }
+   it("Ha de retornar el missatge quan falla", () => {
+     expect(tryCatchDemo("fail")).toEqual("Failure!");
+   });
+ });
 
 // /*
 // Repte 14:
