@@ -511,22 +511,22 @@ interface Param {
 // Pista: revisa els Utility Types Pick i Omit.
 // */
 
-// describe("Problema d'Omit i Pick", () => {
-//   interface User {
-//     id: string;
-//     firstName: string;
-//     lastName: string;
-//   }
+ describe("Problema d'Omit i Pick", () => {
+   interface User {
+     id: string;
+     firstName: string;
+     lastName: string;
+   }
+   
+   /**
+    * Com creem un nou tipus d'objecte amb NOMÉS les propietats
+    * firstName i lastName de User?
+    *
+    */
+   type MyType = Pick<User, "firstName" | "lastName">;
 
-//   /**
-//    * Com creem un nou tipus d'objecte amb NOMÉS les propietats
-//    * firstName i lastName de User?
-//    */
-
-//   type MyType = unknown;
-
-//   type tests = [Expect<Equal<MyType, { firstName: string; lastName: string }>>];
-// });
+   type tests = [Expect<Equal<MyType, { firstName: string; lastName: string }>>];
+ });
 
 // /*
 // Repte 17:
