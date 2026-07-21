@@ -533,24 +533,23 @@ interface Param {
 // La funció 'onFocusChange' is actualment 'unknown'. Visita la documentació de TypeScript i esbrina el tipus apropiat per la funció.
 // */
 
-// describe("Problema de tipus de funció", () => {
+ describe("Problema de tipus de funció", () => {
+  
+  const addListener = (onFocusChange: (isFocused: boolean) => void) => {
+    window.addEventListener("focus", () => {
+      onFocusChange(true);
+    })
+    window.addEventListener("blur", () => {
+      onFocusChange(false);
+     });
+  }
 
-//   const addListener = (onFocusChange: unknown) => {
-//     window.addEventListener("focus", () => {
-//       onFocusChange(true);
-//     });
+  addListener((isFocused) => {
+    console.log({ isFocused })
+    type tests = [Expect<Equal<typeof isFocused, boolean>>];
+  });
 
-//     window.addEventListener("blur", () => {
-//       onFocusChange(false);
-//     });
-//   };
-
-//   addListener((isFocused) => {
-//     console.log({ isFocused });
-
-//     type tests = [Expect<Equal<typeof isFocused, boolean>>];
-//   });
-// });
+ });
 
 // /*
 // Repte 18:
