@@ -378,7 +378,7 @@ interface Param {
     } else {
       return amount.amount;
     }
-   }
+   };
    it("Ha de retornar l'import quan es passa un objecte", () => {
      expect(coerceAmount({ amount: 20 })).toEqual(20);
    })
