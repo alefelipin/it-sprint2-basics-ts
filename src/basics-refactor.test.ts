@@ -438,7 +438,6 @@ interface Param {
 // */
 
  describe("Problema d'herència amb extends", () => {
-
    interface IdNumber {
      id: string;
     }
@@ -456,6 +455,7 @@ interface Param {
    interface Comment extends IdNumber {
      comment: string;
     }
+  
    
    type tests = [
      Expect<Equal<User, { id: string; firstName: string; lastName: string }>>,
