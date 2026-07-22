@@ -13,7 +13,7 @@ import { Equal, Expect } from "./helpers/type-utils";
    /**
     * Com podem extreure MyFuncReturn a partir de myFunc?
    //  */
-   type MyFuncReturn = ReturnType<typeof myFunc>
+   type MyFuncReturn = ReturnType<typeof myFunc>;
    type tests = [Expect<Equal<MyFuncReturn, string>>];
  });
 
@@ -21,38 +21,36 @@ import { Equal, Expect } from "./helpers/type-utils";
 // Repte 2:
 // Utilitza Parameters per obtenir el tipus dels paràmetres de la funció makeQuery.
 // */
-// describe("Transformació: obtenir els paràmetres d'una funció", () => {
-//   const makeQuery = (
-//     url: string,
-//     opts?: {
-//       method?: string;
-//       headers?: {
-//         [key: string]: string;
-//       };
-//       body?: string;
-//     },
-//   ) => {};
-
-//   type MakeQueryParameters = unknown;
-
-//   type tests = [
-//     Expect<
-//       Equal<
-//         MakeQueryParameters,
-//         [
-//           url: string,
-//           opts?: {
-//             method?: string;
-//             headers?: {
-//               [key: string]: string;
-//             };
-//             body?: string;
-//           },
-//         ]
-//       >
-//     >,
-//   ];
-// });
+ describe("Transformació: obtenir els paràmetres d'una funció", () => {
+   const makeQuery = (
+     url: string,
+     opts?: {
+       method?: string;
+       headers?: {
+         [key: string]: string;
+       };
+       body?: string;
+     },
+   ) => {}
+   type MakeQueryParameters = Parameters<typeof makeQuery>;
+   type tests = [
+     Expect<
+       Equal<
+         MakeQueryParameters,
+         [
+           url: string,
+           opts?: {
+             method?: string;
+             headers?: {
+               [key: string]: string;
+             };
+             body?: string;
+           },
+         ]
+       >
+     >,
+   ];
+ });
 
 // /*
 // Repte 3:
