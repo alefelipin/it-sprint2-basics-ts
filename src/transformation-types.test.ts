@@ -159,21 +159,19 @@ import { Equal, Expect } from "./helpers/type-utils";
 // Repte 8:
 // Utilitza indexed access types per obtenir el tipus dels valors d'un objecte amb as const.
 // */
-// describe("Transformació: obtenir el tipus dels valors d'un objecte amb as const", () => {
-//   const frontendToBackendEnumMap = {
-//     singleModule: "SINGLE_MODULE",
-//     multiModule: "MULTI_MODULE",
-//     sharedModule: "SHARED_MODULE",
-//   } as const;
-
-//   type BackendModuleEnum = unknown;
-
-//   type tests = [
-//     Expect<
-//       Equal<BackendModuleEnum, "SINGLE_MODULE" | "MULTI_MODULE" | "SHARED_MODULE">
-//     >,
-//   ];
-// });
+ describe("Transformació: obtenir el tipus dels valors d'un objecte amb as const", () => {
+   const frontendToBackendEnumMap = {
+     singleModule: "SINGLE_MODULE",
+     multiModule: "MULTI_MODULE",
+     sharedModule: "SHARED_MODULE",
+   } as const
+   type BackendModuleEnum = typeof frontendToBackendEnumMap["singleModule" | "multiModule" | "sharedModule"]
+   type tests = [
+     Expect<
+       Equal<BackendModuleEnum, "SINGLE_MODULE" | "MULTI_MODULE" | "SHARED_MODULE">
+     >,
+   ];
+ });
 
 // /*
 // Repte 9:
