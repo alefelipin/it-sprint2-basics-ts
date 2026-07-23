@@ -294,15 +294,13 @@ import { Equal, Expect } from "./helpers/type-utils";
 // Pots utilitzar l'operador typeof per obtenir el tipus de l'array i després accedir als seus valors amb l'índex [number] o amb una tupla d'índexs específics.
 //  */
 
-// describe("Transformació: obtenir el tipus a partir d'un array de valors", () => {
-// const fruits = ["apple", "banana", "orange"];
-
-// type AppleOrBanana = unknown;
-// type Fruit = unknown;
-
-// type tests = [
-//   Expect<Equal<AppleOrBanana, "apple" | "banana">>,
-//   Expect<Equal<Fruit, "apple" | "banana" | "orange">>,
-// ];
-// });
+ describe("Transformació: obtenir el tipus a partir d'un array de valors", () => {
+ const fruits = ["apple", "banana", "orange"] as const;
+ type AppleOrBanana = typeof fruits[0 | 1];
+ type Fruit = typeof fruits[0 | 1 | 2];
+ type tests = [
+   Expect<Equal<AppleOrBanana, "apple" | "banana">>,
+   Expect<Equal<Fruit, "apple" | "banana" | "orange">>,
+ ];
+ });
 
