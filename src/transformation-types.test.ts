@@ -265,25 +265,23 @@ import { Equal, Expect } from "./helpers/type-utils";
 // Repte 12:
 // Extreu el tipus del discriminador d'una discriminated union.
 // */
-// describe("Transformació: obtenir el tipus del discriminador d'una discriminated union", () => {
-//   type Event =
-//     | {
-//         type: "click";
-//         event: MouseEvent;
-//       }
-//     | {
-//         type: "focus";
-//         event: FocusEvent;
-//       }
-//     | {
-//         type: "keydown";
-//         event: KeyboardEvent;
-//       };
-
-//   type EventType = unknown;
-
-//   type tests = [Expect<Equal<EventType, "click" | "focus" | "keydown">>];
-// });
+ describe("Transformació: obtenir el tipus del discriminador d'una discriminated union", () => {
+   type Event =
+     | {
+         type: "click";
+         event: MouseEvent;
+       }
+     | {
+         type: "focus";
+         event: FocusEvent;
+       }
+     | {
+         type: "keydown";
+         event: KeyboardEvent;
+       }
+   type EventType = Event["type"]
+   type tests = [Expect<Equal<EventType, "click" | "focus" | "keydown">>];
+ });
 
 // /* 
 // Repte 13:
