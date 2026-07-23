@@ -165,7 +165,7 @@ import { Equal, Expect } from "./helpers/type-utils";
      multiModule: "MULTI_MODULE",
      sharedModule: "SHARED_MODULE",
    } as const
-   type BackendModuleEnum = typeof frontendToBackendEnumMap["singleModule" | "multiModule" | "sharedModule"]
+   type BackendModuleEnum = typeof frontendToBackendEnumMap["singleModule" | "multiModule"| "sharedModule"]
    type tests = [
      Expect<
        Equal<BackendModuleEnum, "SINGLE_MODULE" | "MULTI_MODULE" | "SHARED_MODULE">
@@ -177,39 +177,37 @@ import { Equal, Expect } from "./helpers/type-utils";
 // Repte 9:
 // Dona un exemple de terminologia: union, discriminated union i enum.
 // */
-// describe("Transformació: terminologia de tipus", () => {
+ describe("Transformació: terminologia de tipus", () => {
 //   /**
 //    * És important entendre la terminologia sobre unions:
 //    *
-//    * Una de les declaracions de tipus següents és una union.
-//    * Una de les declaracions de tipus següents és una discriminated union.
-//    * Una de les declaracions de tipus següents és un enum.
+//    * Una de les declaracions de tipus següents és una union >>> La B
+//    * Una de les declaracions de tipus següents és una discriminated union >>> La A
+//    * Una de les declaracions de tipus següents és un enum >>>>> La C
 //    *
 //    * Quina és quina?
 //    */
 
-//   type A =
-//     | {
-//         type: "a";
-//         a: string;
-//       }
-//     | {
-//         type: "b";
-//         b: string;
-//       }
-//     | {
-//         type: "c";
-//         c: string;
-//       };
-
-//   type B = "a" | "b" | "c";
-
-//   enum C {
-//     A = "a",
-//     B = "b",
-//     C = "c",
-//   }
-// });
+   type A =
+     | {
+         type: "a";
+         a: string;
+       }
+     | {
+         type: "b";
+         b: string;
+       }
+     | {
+         type: "c";
+         c: string;
+       }
+   type B = "a" | "b" | "c"
+   enum C {
+     A = "a",
+     B = "b",
+     C = "c",
+   }
+ });
 
 // /*
 // Repte 10:
